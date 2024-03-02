@@ -1,0 +1,46 @@
+/* .form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #c93131;
+    border-radius: 8px;
+  } */
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+  }
+  
+  input[type="text"],
+  select {
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  button {
+    width: 150px;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 auto;
+  display: block;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  

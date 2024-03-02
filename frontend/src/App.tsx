@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import VoteForm from './components/VoteForm';
 
 function App() {
   return (
     <div className="App">
-      Hello World
+      <VoteForm />
     </div>
   );
 }
