@@ -58,8 +58,11 @@ const VoteForm: React.FC = () => {
         const response = await axios.post('http://localhost:4000/api/submit-vote', formData);
         console.log('Response from server:', response.data);
     } catch (error) {
+		if (axios.isAxiosError(error)) {
+			alert(error.response?.data.message); // Display the error message from the backend
+		}
+		setFormError('Error submitting vote. Please try again later.');
         console.error('Error submitting vote:', error);
-        setFormError('Error submitting vote. Please try again later.');
     }
     console.log('Submitted data:', formData);
     setFormError('');
