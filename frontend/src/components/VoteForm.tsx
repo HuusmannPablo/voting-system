@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { votingOptions } from '../texts/votingOptions';
 import './VoteForm.css';
 
-interface VotingOption {
-    id: number;
-    option: string;
-}
+// interface VotingOption {
+//     id: number;
+//     option: string;
+// }
 
 interface VoteFormData {
   fullName: string;

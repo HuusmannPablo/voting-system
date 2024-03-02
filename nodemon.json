@@ -2,6 +2,7 @@
     "watch": ["backend/src"],
     "ext": "ts",
     "ignore": ["backend/src/**/*.test.ts"],
-    "exec": "node_modules/.bin/ts-node backend/src/app.ts"
+    "exec": "ts-node backend/src/app.ts"
+    // "exec": "node_modules/.bin/ts-node backend/src/app.ts"
   }
   
