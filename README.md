@@ -117,16 +117,11 @@ You can also try to cast a second vote with the same person, or with a person th
 
 ### Frontend:
 
-**React**
-**TypeScript**
-**Axios**
+React, TypeScript, Axios
 
 ### Backend:
 
-**Node.js**
-**TypeScript**
-**Express**
-**MySQL**
+Node.js, TypeScript, Express, MySQL
 
 
 ## Contributors
