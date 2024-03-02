@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import { votingOptions } from '../texts/votingOptions';
 import './VoteForm.css';
 
+interface VotingOption {
+    id: number;
+    option: string;
+}
+
 interface VoteFormData {
   fullName: string;
   zipCode: string;
@@ -9,25 +14,48 @@ interface VoteFormData {
 }
 
 const VoteForm: React.FC = () => {
+  const [zipCodeError, setZipCodeError] = useState<string>('');
+  const [formError, setFormError] = useState<string>('');
+
   const [formData, setFormData] = useState<VoteFormData>({
     fullName: '',
     zipCode: '',
-    selectedOption: Object.values(votingOptions)[0].option, // Default selected option
+    selectedOption: Object.values(votingOptions)[0].option,
   });
+  
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
+
+    if (name === 'zipCode' && value.length !== 4) {
+        setZipCodeError('Zip Code must be a four-digit number.');
+    } else {
+        setZipCodeError('');
+    }
+    
     setFormData(prevState => ({
       ...prevState,
       [name]: value,
     }));
+    console.log('Form Data is: ', formData)
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!formData.fullName || !formData.zipCode || !formData.selectedOption) {
+        setFormError('All fields are mandatory, please fill in all fields.');
+        return;
+    }
+
+    if (zipCodeError) {
+        alert('Zip Code must be a four digit number.');
+        return;
+    }
     // Send formData to the backend for further processing
     console.log('Submitted data:', formData);
     // Add logic here to send the formData to the backend API
+    setFormError('');
   };
 
   return (
@@ -53,6 +81,7 @@ const VoteForm: React.FC = () => {
           onChange={handleChange}
           required
         />
+        {zipCodeError && <div className="error">{zipCodeError}</div>}
       </div>
       <div>
         <label htmlFor="votingOptions">Voting Options:</label>
@@ -72,6 +101,7 @@ const VoteForm: React.FC = () => {
           ))}
         </select>
       </div>
+      {formError && <div className="error">{formError}</div>}
       <button type="submit">Submit</button>
     </form>
   );
