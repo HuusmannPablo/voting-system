@@ -26,18 +26,20 @@ Clone the repository from GitHub:
     git clone https://github.com/yourusername/voting-system.git
 
 
-Navigate to the root directory of the project:
+Navigate to the root directory of the project and install the global dependencies:
 
 
     cd voting-system
-
-
-Install dependencies globally and for both the frontend and backend:
-
-
     npm install
+
+
+Install specific dependencies and for both the frontend and backend:
+
+
     cd frontend
     npm install
+
+
     cd ../backend
     npm install
 
@@ -52,10 +54,11 @@ Create a .env file in the backend directory and add the following environment va
     DB_DATABASE=voting_system
 
 
-Replace *DB_USER*, *DB_PASSWORD*, and *DB_DATABASE* with your MySQL database credentials and database name.
+Replace the *DB_USER*, *DB_PASSWORD*, and *DB_DATABASE* values with your MySQL database credentials and database name.
 
+---
 
-Create a table in your **MySQL Workbench**:
+Create a table in your **MySQL Workbench** to hold the information of the persons that are enrolled to vote:
 
 
     CREATE TABLE members_enrolled (
@@ -88,9 +91,9 @@ And populate it with your random voters:
             ('Noah Lee', '6543'),
             ('Mia Hernandez', '5432');
 
+---
 
-
-Start the ***backend*** server:
+Back in your terminal start the ***backend*** server:
 
 
     cd ../backend
@@ -112,18 +115,18 @@ You can also try to cast a second vote with the same person, or with a person th
 
 ## Technologies Used
 
-***Frontend:***
+### Frontend:
 
-### React
-### TypeScript
-### Axios
+**React**
+**TypeScript**
+**Axios**
 
-***Backend:***
+### Backend:
 
-### Node.js
-### TypeScript
-### Express
-### MySQL
+**Node.js**
+**TypeScript**
+**Express**
+**MySQL**
 
 
 ## Contributors
