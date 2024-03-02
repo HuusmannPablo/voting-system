@@ -14,7 +14,7 @@ interface VoteFormData {
 }
 
 const VoteForm: React.FC = () => {
-  const [zipCodeError, setZipCodeError] = useState<string>('');
+  const [zipCodeError, setZipCodeError] = useState<boolean>(false);
   const [formError, setFormError] = useState<string>('');
 
   const [formData, setFormData] = useState<VoteFormData>({
@@ -28,9 +28,9 @@ const VoteForm: React.FC = () => {
     const { name, value } = e.target;
 
     if (name === 'zipCode' && value.length !== 4) {
-        setZipCodeError('Zip Code must be a four-digit number.');
+        setZipCodeError(true);
     } else {
-        setZipCodeError('');
+        setZipCodeError(false);
     }
     
     setFormData(prevState => ({
