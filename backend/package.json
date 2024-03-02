@@ -12,5 +12,8 @@
   "license": "ISC",
   "devDependencies": {
     "dotenv": "^16.4.5"
+  },
+  "dependencies": {
+    "cors": "^2.8.5"
   }
 }

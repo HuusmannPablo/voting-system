@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { votingOptions } from '../texts/votingOptions';
+import axios from 'axios';
 import './VoteForm.css';
 
 // interface VotingOption {
@@ -40,7 +41,7 @@ const VoteForm: React.FC = () => {
     console.log('Form Data is: ', formData)
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!formData.fullName || !formData.zipCode || !formData.selectedOption) {
@@ -52,9 +53,15 @@ const VoteForm: React.FC = () => {
         alert('Zip Code must be a four digit number.');
         return;
     }
-    // Send formData to the backend for further processing
+
+    try {
+        const response = await axios.post('http://localhost:4000/api/submit-vote', formData);
+        console.log('Response from server:', response.data);
+    } catch (error) {
+        console.error('Error submitting vote:', error);
+        setFormError('Error submitting vote. Please try again later.');
+    }
     console.log('Submitted data:', formData);
-    // Add logic here to send the formData to the backend API
     setFormError('');
   };
 
