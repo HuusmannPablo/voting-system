@@ -64,5 +64,4 @@ describe('VoteForm component', () => {
 		});
 	});
 
-  // Add more test cases as needed
 });
